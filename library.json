@@ -1,0 +1,25 @@
+{
+    "name": "ErriezHCSR04",
+    "version": "1.0.0",
+    "keywords": "arduino, library, hc-sr04, ultrasonic, distance, sensor, measure, cm, documentation, examples, erriez",
+    "description": "This is a HC-SR04 ultrasonic distance sensor library for Arduino",
+    "homepage": "https://github.com/Erriez/ErriezHCSR04",
+    "license": "MIT",
+    "authors": {
+        "name": "Erriez",
+        "url": "https://github.com/Erriez",
+        "maintainer": true
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Erriez/ErriezHCSR04.git",
+        "branch": "master"
+    },
+    "frameworks": "arduino",
+    "platforms": [
+        "atmelavr",
+        "atmelsam",
+        "espressif8266",
+        "espressif32"
+    ]
+}
