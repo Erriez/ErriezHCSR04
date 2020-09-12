@@ -72,7 +72,7 @@ $(function() {
 </div>
 <h2>Library features</h2>
 <ul>
-<li>Measure distance between 2..2000 cm</li>
+<li>Measure distance between 3cm .. 400cm or 1.18" .. 157.48"</li>
 <li>Accuracy around +/-1cm</li>
 <li>Optimized pin control for AVR</li>
 </ul>
@@ -90,15 +90,18 @@ $(function() {
 <h2>Examples</h2>
 <p>Arduino IDE | Examples | Erriez HC-SR04:</p>
 <ul>
-<li><a href="https://github.com/Erriez/ErriezHCSR04/blob/master/examples/ErriezHCSR04/ErriezHCSR04.ino">HC-SR04</a></li>
+<li><a href="https://github.com/Erriez/ErriezHCSR04/blob/master/examples/ErriezHCSR04Centimeter/ErriezHCSR04Centimeter.ino">HC-SR04 Centimeter</a></li>
+<li><a href="https://github.com/Erriez/ErriezHCSR04/blob/master/examples/ErriezHCSR04Inch/ErriezHCSR04Inch.ino">HC-SR04 Inch</a></li>
 </ul>
 <h2>Documentation</h2>
 <ul>
 <li><a href="https://erriez.github.io/ErriezHCSR04">Doxygen online HTML</a></li>
 <li><a href="https://github.com/Erriez/ErriezHCSR04/blob/master/ErriezHCSR04.pdf">Doxygen PDF</a></li>
+<li><a href="https://www.google.com/search?q=%22hc-sr04%20pdf%22">Datsheet</a></li>
 </ul>
 <h2>Example</h2>
-<div class="fragment"><div class="line">{c++}</div><div class="line">#include &lt;ErriezHCSR04.h&gt;</div><div class="line"></div><div class="line">// Pin defines</div><div class="line">#define TRIG_PIN    2</div><div class="line">#define ECHO_PIN    3</div><div class="line"></div><div class="line">// Create sensor object</div><div class="line">ErriezHCSR04 hcsr04(TRIG_PIN, ECHO_PIN);</div><div class="line"></div><div class="line"></div><div class="line">void setup()</div><div class="line">{</div><div class="line">    // Initialize serial port</div><div class="line">    delay(500);</div><div class="line">    Serial.begin(115200);</div><div class="line">    while (!Serial) {</div><div class="line">        ;</div><div class="line">    }</div><div class="line">    Serial.println(F(&quot;\nErriez HC-SR04 ultrasonic distance sensor example\n&quot;));</div><div class="line"></div><div class="line">    // Initialize pins</div><div class="line">    hcsr04.begin();</div><div class="line">}</div><div class="line"></div><div class="line">void loop()</div><div class="line">{</div><div class="line">    uint16_t distance;</div><div class="line"></div><div class="line">    // Measure distance</div><div class="line">    distance = hcsr04.getDistance();</div><div class="line"></div><div class="line">    // Print distance</div><div class="line">    Serial.print(&quot;Distance: &quot;);</div><div class="line">    Serial.print(distance);</div><div class="line">    Serial.println(&quot; cm&quot;);</div><div class="line"></div><div class="line">    // Wait</div><div class="line">    delay(250);</div><div class="line">}</div></div><!-- fragment --><h2>Library dependencies</h2>
+<div class="fragment"><div class="line">{c++}</div><div class="line">#include &lt;ErriezHCSR04.h&gt;</div><div class="line"></div><div class="line">// Pin defines</div><div class="line">#define TRIG_PIN    2</div><div class="line">#define ECHO_PIN    3</div><div class="line"></div><div class="line">// Create sensor object</div><div class="line">ErriezHCSR04 hcsr04(TRIG_PIN, ECHO_PIN);</div><div class="line"></div><div class="line"></div><div class="line">void setup()</div><div class="line">{</div><div class="line">    // Initialize serial port</div><div class="line">    delay(500);</div><div class="line">    Serial.begin(115200);</div><div class="line">    while (!Serial) {</div><div class="line">        ;</div><div class="line">    }</div><div class="line">    Serial.println(F(&quot;\nErriez HC-SR04 ultrasonic distance sensor example\n&quot;));</div><div class="line"></div><div class="line">    // Initialize pins</div><div class="line">    hcsr04.begin();</div><div class="line">}</div><div class="line"></div><div class="line">void loop()</div><div class="line">{</div><div class="line">    int16_t distance;</div><div class="line"></div><div class="line">    // Measure distance in centimeter</div><div class="line">    distance = hcsr04.getDistance();</div><div class="line"></div><div class="line">    // Print distance</div><div class="line">    Serial.print(F(&quot;Distance: &quot;));</div><div class="line">    if (distance &gt;= 0) {</div><div class="line">        Serial.print(distance);</div><div class="line">        Serial.println(F(&quot; cm&quot;));</div><div class="line">    } else {</div><div class="line">        Serial.println(F(&quot;-&quot;));</div><div class="line">    }</div><div class="line"></div><div class="line">    // Wait</div><div class="line">    delay(250);</div><div class="line">}</div></div><!-- fragment --><h3>Measure distance in Inches</h3>
+<div class="fragment"><div class="line">{c++}</div><div class="line">void loop()</div><div class="line">{</div><div class="line">    float distance;</div><div class="line"></div><div class="line">    // Measure distance in Inch</div><div class="line">    distance = hcsr04.getDistanceInch();</div><div class="line"></div><div class="line">    // Print distance</div><div class="line">    Serial.print(F(&quot;Distance: &quot;));</div><div class="line">    if (distance &gt;= 0) {</div><div class="line">        Serial.print(distance);</div><div class="line">        Serial.println(F(&quot;\&quot;&quot;));</div><div class="line">    } else {</div><div class="line">        Serial.println((&quot;-&quot;));</div><div class="line">    }</div><div class="line"></div><div class="line">    // Wait</div><div class="line">    delay(250);</div><div class="line">}</div></div><!-- fragment --><h2>Library dependencies</h2>
 <ul>
 <li>None</li>
 </ul>

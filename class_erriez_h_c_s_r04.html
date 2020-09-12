@@ -83,9 +83,12 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_erriez_h_c_s_r04.html#ab6c969b7b67a47596e0da476539c6ce2">begin</a> ()</td></tr>
 <tr class="memdesc:ab6c969b7b67a47596e0da476539c6ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize pins. <br /></td></tr>
 <tr class="separator:ab6c969b7b67a47596e0da476539c6ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2219a874610f683d7139950c1380ef5a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_erriez_h_c_s_r04.html#a2219a874610f683d7139950c1380ef5a">getDistance</a> ()</td></tr>
-<tr class="memdesc:a2219a874610f683d7139950c1380ef5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get distance.  <a href="#a2219a874610f683d7139950c1380ef5a">More...</a><br /></td></tr>
-<tr class="separator:a2219a874610f683d7139950c1380ef5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a238bfff961c32490c5e8b16f5d9c8bfa"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_erriez_h_c_s_r04.html#a238bfff961c32490c5e8b16f5d9c8bfa">getDistance</a> ()</td></tr>
+<tr class="memdesc:a238bfff961c32490c5e8b16f5d9c8bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get distance in cm.  <a href="#a238bfff961c32490c5e8b16f5d9c8bfa">More...</a><br /></td></tr>
+<tr class="separator:a238bfff961c32490c5e8b16f5d9c8bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad49c2ea839d54542acc41af3444c3c01"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_erriez_h_c_s_r04.html#ad49c2ea839d54542acc41af3444c3c01">getDistanceInch</a> ()</td></tr>
+<tr class="memdesc:ad49c2ea839d54542acc41af3444c3c01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get distance in Inch.  <a href="#ad49c2ea839d54542acc41af3444c3c01">More...</a><br /></td></tr>
+<tr class="separator:ad49c2ea839d54542acc41af3444c3c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_erriez_h_c_s_r04.html" title="ErriezHCSR04 class. ">ErriezHCSR04</a> class. </p>
@@ -132,14 +135,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2219a874610f683d7139950c1380ef5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2219a874610f683d7139950c1380ef5a">&#9670;&nbsp;</a></span>getDistance()</h2>
+<a id="a238bfff961c32490c5e8b16f5d9c8bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a238bfff961c32490c5e8b16f5d9c8bfa">&#9670;&nbsp;</a></span>getDistance()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t ErriezHCSR04::getDistance </td>
+          <td class="memname">int16_t ErriezHCSR04::getDistance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -147,10 +150,44 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>Get distance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Distance in cm </dd></dl>
+<p>Get distance in cm. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-1</td><td>Out of range </td></tr>
+    <tr><td class="paramname">0..400cm</td><td>Distance in cm </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_erriez_h_c_s_r04_8cpp_source.html#l00076">76</a> of file <a class="el" href="_erriez_h_c_s_r04_8cpp_source.html">ErriezHCSR04.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_erriez_h_c_s_r04_8cpp_source.html#l00078">78</a> of file <a class="el" href="_erriez_h_c_s_r04_8cpp_source.html">ErriezHCSR04.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad49c2ea839d54542acc41af3444c3c01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad49c2ea839d54542acc41af3444c3c01">&#9670;&nbsp;</a></span>getDistanceInch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ErriezHCSR04::getDistanceInch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get distance in Inch. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-1</td><td>Out of range </td></tr>
+    <tr><td class="paramname">0.00"</td><td>.. 157.48" Distance in inch </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_erriez_h_c_s_r04_8cpp_source.html#l00111">111</a> of file <a class="el" href="_erriez_h_c_s_r04_8cpp_source.html">ErriezHCSR04.cpp</a>.</p>
 
 </div>
 </div>
