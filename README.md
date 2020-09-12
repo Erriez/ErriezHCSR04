@@ -9,7 +9,7 @@ This is a HC-SR04 I2C RTC library for Arduino.
 
 ## Library features
 
-* Measure distance between 2..2000 cm
+* Measure distance between 3cm .. 400cm or 1.18" .. 157.48"
 * Accuracy around +/-1cm
 * Optimized pin control for AVR
 
@@ -30,13 +30,15 @@ This is a HC-SR04 I2C RTC library for Arduino.
 
 Arduino IDE | Examples | Erriez HC-SR04:
 
-* [HC-SR04](https://github.com/Erriez/ErriezHCSR04/blob/master/examples/ErriezHCSR04/ErriezHCSR04.ino)
+* [HC-SR04 Centimeter](https://github.com/Erriez/ErriezHCSR04/blob/master/examples/ErriezHCSR04Centimeter/ErriezHCSR04Centimeter.ino)
+* [HC-SR04 Inch](https://github.com/Erriez/ErriezHCSR04/blob/master/examples/ErriezHCSR04Inch/ErriezHCSR04Inch.ino)
 
 
 ## Documentation
 
 * [Doxygen online HTML](https://erriez.github.io/ErriezHCSR04)
 * [Doxygen PDF](https://github.com/Erriez/ErriezHCSR04/blob/master/ErriezHCSR04.pdf)
+* [Datsheet](https://www.google.com/search?q=%22hc-sr04%20pdf%22)
 
 
 ## Example
@@ -68,15 +70,43 @@ void setup()
 
 void loop()
 {
-    uint16_t distance;
+    int16_t distance;
 
-    // Measure distance
+    // Measure distance in centimeter
     distance = hcsr04.getDistance();
-    
+
     // Print distance
-    Serial.print("Distance: ");
-    Serial.print(distance);
-    Serial.println(" cm");
+    Serial.print(F("Distance: "));
+    if (distance >= 0) {
+        Serial.print(distance);
+        Serial.println(F(" cm"));
+    } else {
+        Serial.println(F("-"));
+    }
+
+    // Wait
+    delay(250);
+}
+```
+
+### Measure distance in Inches
+
+```c++
+void loop()
+{
+    float distance;
+
+    // Measure distance in Inch
+    distance = hcsr04.getDistanceInch();
+
+    // Print distance
+    Serial.print(F("Distance: "));
+    if (distance >= 0) {
+        Serial.print(distance);
+        Serial.println(F("\""));
+    } else {
+        Serial.println(("-"));
+    }
 
     // Wait
     delay(250);

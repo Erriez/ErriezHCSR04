@@ -12,6 +12,7 @@ ErriezHCSR04	KEYWORD1
 #######################################
 begin	KEYWORD2
 getDistance	KEYWORD1
+getDistanceInch	KEYWORD1
 
 #######################################
 # Instances (KEYWORD2)

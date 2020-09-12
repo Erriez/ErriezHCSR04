@@ -65,7 +65,10 @@ public:
     void begin();
 
     // Get distance in cm
-    uint16_t getDistance();
+    int16_t getDistance();
+
+    // Get distance in Inch
+    float getDistanceInch();
 
 private:
 #ifdef __AVR

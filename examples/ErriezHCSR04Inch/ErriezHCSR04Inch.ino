@@ -57,15 +57,19 @@ void setup()
 
 void loop()
 {
-    uint16_t distance;
+    float distance;
 
-    // Measure distance
-    distance = hcsr04.getDistance();
+    // Measure distance in Inch
+    distance = hcsr04.getDistanceInch();
 
     // Print distance
-    Serial.print("Distance: ");
-    Serial.print(distance);
-    Serial.println(" cm");
+    Serial.print(F("Distance: "));
+    if (distance >= 0) {
+        Serial.print(distance);
+        Serial.println(F("\""));
+    } else {
+        Serial.println(("-"));
+    }
 
     // Wait
     delay(250);

@@ -19,7 +19,8 @@ function autobuild()
     BOARDS_ESP="--board d1_mini --board nodemcuv2 --board lolin_d32"
 
     echo "Building examples..."
-    platformio ci --lib="." ${BOARDS_AVR} ${BOARDS_ARM} ${BOARDS_ESP} examples/ErriezHCSR04/ErriezHCSR04.ino
+    platformio ci --lib="." ${BOARDS_AVR} ${BOARDS_ARM} ${BOARDS_ESP} examples/ErriezHCSR04Centimeter/ErriezHCSR04Centimeter.ino
+    platformio ci --lib="." ${BOARDS_AVR} ${BOARDS_ARM} ${BOARDS_ESP} examples/ErriezHCSR04Inch/ErriezHCSR04Inch.ino
 }
 
 function generate_doxygen()

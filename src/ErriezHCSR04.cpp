@@ -69,12 +69,16 @@ void ErriezHCSR04::begin()
 }
 
 /*!
- * \brief Get distance
- * \return
+ * \brief Get distance in cm
+ * \retval -1
+ *      Out of range
+ * \retval 0..400cm
  *      Distance in cm
  */
-uint16_t ErriezHCSR04::getDistance()
+int16_t ErriezHCSR04::getDistance()
 {
+    uint16_t distance;
+
     // Wait at least 2 microseconds with TRIG pin low before starting measurement
     HCSR04_TRIG_LOW();
     delayMicroseconds(2);
@@ -85,5 +89,37 @@ uint16_t ErriezHCSR04::getDistance()
     HCSR04_TRIG_LOW();
 
     // Reads the ECHO pin, returns the sound wave travel time in microseconds
-    return (pulseIn(_echoPin, HIGH) * 0.034) / 2;
+    // Distance = (high level time * velocity (340M/S)) / 2;
+    distance = (pulseIn(_echoPin, HIGH) * 0.034) / 2;
+
+    // Max range is around 400cm
+    if (distance > 400) {
+        // Invalid distance
+        distance = -1;
+    }
+
+    return distance;
+}
+
+/*!
+ * \brief Get distance in Inch
+ * \retval -1
+ *      Out of range
+ * \retval 0.00" .. 157.48"
+ *      Distance in inch
+ */
+float ErriezHCSR04::getDistanceInch()
+{
+    int16_t distanceCm;
+
+    // Read distance in centimeter
+    distanceCm = getDistance();
+
+    if (distanceCm >= 0) {
+        // Convert cm to inch
+        return (float)distanceCm / 2.54;
+    } else {
+        // Invalid distance
+        return -1.0;
+    }
 }
